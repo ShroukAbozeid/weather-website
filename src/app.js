@@ -32,21 +32,20 @@ app.get('', (req, res) => {
   })
 })
 
-app.get('about', (req, res) => {
+app.get('/about', (req, res) => {
     res.render('about', {
         title: 'me',
         name: 'Andrew'
     })
 })
   
-app.get('help', (req, res) => {
+app.get('/help', (req, res) => {
     res.render('help', {
         msg: 'send email',
         title: 'Help',
         name: 'Andrew'
     })
   })
-  
 
 
 app.get('/weather', (req, res) => {
@@ -81,14 +80,6 @@ app.get('/weather', (req, res) => {
    
 })
 
-app.get('/help/*', (req, res) => {
-    res.render('404', {
-        errorMsg: 'Help article not found.',
-        title: '404',
-        name: 'Andrew'
-    })
-})
-
 // * match anything(not matched before)
 app.get('*', (req,res) => {
     res.render('404', {
@@ -97,6 +88,7 @@ app.get('*', (req,res) => {
         name: 'Andrew'
     })
 })
+
 app.listen(port, () => {
     console.log('Server is up on port ' + port) //runs after app is running
 }) // starts the server async process
