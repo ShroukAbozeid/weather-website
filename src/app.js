@@ -6,6 +6,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecasts')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for expess config
 const publicDirectoryPath = path.join(__dirname, '../public/')
@@ -96,6 +97,6 @@ app.get('*', (req,res) => {
         name: 'Andrew'
     })
 })
-app.listen(3000, () => {
-    console.log('Server is up on port 3000') //runs after app is running
+app.listen(port, () => {
+    console.log('Server is up on port ' + port) //runs after app is running
 }) // starts the server async process
